@@ -1,0 +1,28 @@
+import toby.*
+import wollok.game.*
+import soundProducer.*
+import Portada.*
+
+program tobyGame {
+
+
+
+	
+//	CONFIG	
+	game.title("Toby")
+	game.width(11)
+	game.height(11)
+	
+	game.cellSize(64)
+	
+	
+	game.boardGround("portadaOriginal.jpg")
+	var currentMusic = soundProducer.sound("sonidos/portada.mp3")
+	game.schedule(500, {
+		currentMusic.shouldLoop(true)
+		currentMusic.play()
+	})
+	 
+	game.start()
+	
+}
