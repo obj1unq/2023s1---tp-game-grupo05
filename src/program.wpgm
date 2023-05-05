@@ -2,27 +2,18 @@ import toby.*
 import wollok.game.*
 import soundProducer.*
 import Portada.*
+import manejadorDeNivel.*
 
 program tobyGame {
-
-
-
 	
-//	CONFIG	
-	game.title("Toby")
-	game.width(11)
-	game.height(11)
+	// tablero 1024*1024
+	// cada celda 64*64
+	game.title("Toby: The secret mine")
+	game.width(16)
+	game.height(16)
 	
 	game.cellSize(64)
-	
-	
-	game.boardGround("portadaOriginal.jpg")
-	var currentMusic = soundProducer.sound("sonidos/portada.mp3")
-	game.schedule(500, {
-		currentMusic.shouldLoop(true)
-		currentMusic.play()
-	})
-	 
+	manejadorDeNivel.cargarNivel()
+
 	game.start()
-	
 }
