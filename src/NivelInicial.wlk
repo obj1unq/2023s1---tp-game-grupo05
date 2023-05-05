@@ -19,5 +19,9 @@ object nivelInicial {
 			manejadorDeNivel.avanzarNivel()
 		}
 	}
+	
+	method agregaElementos() {
+		
+	}
 }
 

@@ -1,7 +1,6 @@
 import wollok.game.*
 
-class Muro{
- 	const property imagenMuro = "muro.jpg"
+class Muro{ 
  	var property positionX
  	var property positionY
  	
@@ -10,6 +9,6 @@ class Muro{
  	}
  	
  	method image() {
- 		return imagenMuro
+ 		return "muro.png"
  	}
  }

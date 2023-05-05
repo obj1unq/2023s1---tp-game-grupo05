@@ -23,4 +23,8 @@ method position() = game.origin()
 	method setInputs(manejadorDeNivel) {
 		keyboard.space().onPressDo{ game.stop() }
 	}
+	
+	method agregaElementos() {
+		self.ubicarMuros()
+	}
 }
