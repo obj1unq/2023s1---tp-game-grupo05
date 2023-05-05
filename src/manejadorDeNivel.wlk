@@ -12,6 +12,7 @@ object manejadorDeNivel {
 	method cargarNivel() {
 		const nivel = niveles.get(nivelActual)
 		self.dibujarFondo(nivel)
+		self.agregarElementos(nivel)
 		self.ejecutarMusica(nivel)
 		game.schedule(10, { nivel.setInputs(self)})
 		
@@ -19,6 +20,11 @@ object manejadorDeNivel {
 	
 	method dibujarFondo(nivel) {
 		game.addVisual(nivel)
+		//game.ground(image)
+	}
+	
+	method agregarElementos(nivel) {
+		nivel.agregaElementos()
 		//game.ground(image)
 	}
 	
