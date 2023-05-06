@@ -2,10 +2,11 @@ import wollok.game.*
 import soundProducer.*
 import NivelInicial.*
 import nivel1.*
+import nivel2.*
 
 
 object manejadorDeNivel {
-	const niveles = [nivelInicial, nivel1] //, nivelUno, nivelDos, nivelTres, finJuego
+	const niveles = [nivelInicial, nivel1,nivel2] //, nivelUno, nivelDos, nivelTres, finJuego
 	var nivelActual = 0
 	var currentMusic
 	
