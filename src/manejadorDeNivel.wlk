@@ -4,10 +4,11 @@ import NivelInicial.*
 import nivel1.*
 import nivel2.*
 import nivel3.*
+import finDelJuego.*
 
 
 object manejadorDeNivel {
-	const niveles = [nivelInicial, nivel1,nivel2, nivel3] //, nivelUno, nivelDos, nivelTres, finJuego
+	const niveles = [nivelInicial, nivel1,nivel2, nivel3,finDelJuego] //, nivelUno, nivelDos, nivelTres, finDelJuego
 	var nivelActual = 0
 	var currentMusic
 	

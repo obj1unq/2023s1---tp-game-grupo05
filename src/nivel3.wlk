@@ -21,7 +21,7 @@ method position() = game.origin()
 	}
 	
 	method setInputs(manejadorDeNivel) {
-		keyboard.space().onPressDo{ game.stop() }
+		keyboard.space().onPressDo{ manejadorDeNivel.avanzarNivel() }
 	}
 	
 	method agregaElementos() {
