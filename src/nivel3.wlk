@@ -3,24 +3,25 @@ import toby.*
 import Muro.*
 import repositorioDeMuros.*
 
-object nivel1{
+object nivel3{
 	
 method position() = game.origin()
 	
+	
 	method image() {
-	 	return "nivel1.png"
+	 	return "nivel3.png"
 	 }
 	 method song() {
-	 	return "sonidos/nivel1.mp3"
+	 	return "sonidos/nivel2.mp3"
 	 }
 	
 	method ubicarMuros() {
-		const muros = repositorioDeMuros.nivel1()
+		const muros = repositorioDeMuros.nivel3()
 		muros.forEach{muro => game.addVisual(muro)}
 	}
 	
 	method setInputs(manejadorDeNivel) {
-		keyboard.space().onPressDo{ manejadorDeNivel.avanzarNivel() }
+		keyboard.space().onPressDo{ game.stop() }
 	}
 	
 	method agregaElementos() {
