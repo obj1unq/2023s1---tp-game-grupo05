@@ -1,7 +1,9 @@
 import wollok.game.*
 import toby.*
 import Muro.*
+import mounstros.*
 import repositorioDeMuros.*
+import repositorioDeMounstros.*
 
 object nivel3{
 	
@@ -13,6 +15,11 @@ method position() = game.origin()
 	 }
 	 method song() {
 	 	return "sonidos/nivel2.mp3"
+	 }
+	 
+	 method ubicarMounstros() {
+	 	const mounstros = repositorioDeMounstros.nivel3()
+	 	mounstros.forEach{mounstro => game.addVisual(mounstro)}
 	 }
 	
 	method ubicarMuros() {
@@ -26,5 +33,6 @@ method position() = game.origin()
 	
 	method agregaElementos() {
 		self.ubicarMuros()
+		self.ubicarMounstros()
 	}
 }
