@@ -1,9 +1,9 @@
 import wollok.game.*
 import toby.*
-import Muro.* 
 import mounstros.*
+import huesos.*
+import Muro.*
 import repositorioDeMuros.*
-import repositorioDeMounstros.*
 
 object nivel2{
 	
@@ -21,6 +21,11 @@ method position() = game.origin()
 	 	const mounstros = repositorioDeMounstros.nivel2()
 	 	mounstros.forEach{mounstro => game.addVisual(mounstro)}
 	 }
+	 
+	 method ubicarHuesos() {
+	 	const huesos = repositorioDeHuesos.nivel2()
+	 	huesos.forEach{hueso => game.addVisual(hueso)}
+	 }
 	
 	method ubicarMuros() {
 		const muros = repositorioDeMuros.nivel2()
@@ -34,5 +39,6 @@ method position() = game.origin()
 	method agregaElementos() {
 		self.ubicarMuros()
 		self.ubicarMounstros()
+		self.ubicarHuesos()
 	}
 }
