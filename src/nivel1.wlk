@@ -30,14 +30,22 @@ method position() = game.origin()
 		const muros = repositorioDeMuros.nivel1()
 		muros.forEach{muro => game.addVisual(muro)}
 	}
+	method ubicarToby(){
+		game.addVisual(toby)
+	}
 	
 	method setInputs(manejadorDeNivel) {
 		keyboard.space().onPressDo{ manejadorDeNivel.avanzarNivel() }
+		keyboard.up().onPressDo({ toby.mover(arriba, 1) })
+	keyboard.down().onPressDo({ toby.mover(abajo, 1) })
+	keyboard.left().onPressDo({ toby.mover(izquierda, 1)})
+	keyboard.right().onPressDo({ toby.mover(derecha, 1)})
 	}
 	
 	method agregaElementos() {
 		self.ubicarMuros()
 		self.ubicarMounstros()
 		self.ubicarHuesos()
+		self.ubicarToby()
 	}
 }
