@@ -6,7 +6,7 @@ object finDelJuego {
 	
 	 method image() {
 	 
-	 	return "fin.jpg"
+	 	return "fondo.jpg"
 	 }
 	 method song() {
 	 	return "sonidos/portada.mp3"
