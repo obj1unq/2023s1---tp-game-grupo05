@@ -3,6 +3,7 @@ import wollok.game.*
 import soundProducer.*
 import Portada.*
 import manejadorDeNivel.*
+import trampas.*
 
 program tobyGame {
 	
