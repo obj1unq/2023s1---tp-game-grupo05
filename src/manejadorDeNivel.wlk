@@ -46,6 +46,13 @@ object manejadorDeNivel {
 	  currentMusic.stop()
 	  self.cargarNivel()
 	}
+	
+	method reiniciarJuego() {
+	  nivelActual = 0
+	  game.clear()
+	  currentMusic.stop()
+	  self.cargarNivel()
+	}
 }
 
 

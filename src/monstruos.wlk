@@ -1,4 +1,5 @@
 import wollok.game.*
+import toby.*
 
 
 class Monstruo {
@@ -6,19 +7,26 @@ class Monstruo {
 	var property positionY
 	var property image
 	const property atravesable = true
+
 	
 	method position() {
 		return new Position(x = positionX, y = positionY)
 	}
+	
+	method choqueConToby(toby) {
+		if (toby.cantidadDeHuesos() >= 1){
+			game.removeVisual(self)
+			toby.eliminarMonstruos() 
+		 }else{ toby.perder()  }
+     } 	
 }
-
 object repositorioDeMonstruos {
 	
 	method nivel1() {
  	const monstruos  = []
  	
- 	monstruos.add(new Monstruo(image="monstruo1.png", positionX = 6, positionY = 4))
-    monstruos.add(new Monstruo(image="monstruo2.png", positionX = 7, positionY = 6))
+ 	monstruos.add(new Monstruo(image="monstruo1.png", positionX = 6, positionY = 4 ))
+    monstruos.add(new Monstruo(image="monstruo2.png", positionX = 7, positionY = 6 ))
     monstruos.add(new Monstruo(image="monstruo3.png", positionX = 3, positionY = 15))	
  	
  	return monstruos

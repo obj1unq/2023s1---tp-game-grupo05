@@ -1,11 +1,12 @@
 import wollok.game.*
 import extras.*
+import manejadorDeNivel.*
 
 object toby {
 	var property position = game.at(0,0)
-	var property  energia= 0
 	var property  orientacion = derecha
-	
+	var property cantidadDeHuesos = 0
+
 	method image() {
 		return orientacion.imagenDeToby()
 	}
@@ -17,9 +18,19 @@ object toby {
 	method ladrar() {
 		game.say(self, "Wooof!!!")
 	}
+	
+	 method comer() {
+		cantidadDeHuesos = cantidadDeHuesos + 1
+	}
+	
+	method eliminarMonstruos(){
+		cantidadDeHuesos = cantidadDeHuesos - 1
+	}
+	method perder(){
+		manejadorDeNivel.reiniciarJuego()
+	}
 }
-
-
+	
 object arriba {
 
 	method mover(objeto, cantidad) {
@@ -32,11 +43,6 @@ object arriba {
 	method puedeMover(objeto, cantidad) {
 		return screen.puedeIr(self.proxima(objeto, cantidad))
 	}
-	method accionar(objeto, cantidad) {
-		return (self.proxima(objeto, cantidad)).accionarConMons()
-	}
-	
-	
 	
 	method proxima(objeto, cantidad) {
 		return objeto.position().up(cantidad)

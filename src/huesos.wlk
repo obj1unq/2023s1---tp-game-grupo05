@@ -1,21 +1,21 @@
 import wollok.game.*
+import toby.*
  
 class Hueso {
 	var property positionX
 	var property positionY
 	const property atravesable = true
-	
-	method image() {
-		return "hueso.png"
-	}
+	var property image= "hueso.png"
 	
 	method position() {
 		return new Position(x = positionX, y = positionY)
 	}
+	
+	method choqueConToby(toby) {
+		game.removeVisual(self)
+		toby.comer()
+	}
 }
-
-
-
 object repositorioDeHuesos {
 	
 	method nivel1() {

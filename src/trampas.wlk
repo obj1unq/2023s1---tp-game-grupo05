@@ -17,7 +17,6 @@ class Trampa {
 	method position() {
 		return new Position (x = positionX, y = positionY)
 	}
-	
 	method image() {
 		if (visible)
 			return "trampa.png"
@@ -38,7 +37,6 @@ object repositorioDeTrampas {
 		trampas.add(new Trampa(positionX=1,positionY=4))
 		trampas.add(new Trampa(positionX=8,positionY=8))
 		
-		console.println("nivel1")
 		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
 		
 		return trampas

@@ -4,6 +4,9 @@ import soundProducer.*
 import Portada.*
 import manejadorDeNivel.*
 import trampas.*
+import huesos.*
+import monstruos.*
+
 
 program tobyGame {
 	// SOLO DATOS GENERICOS DEL JUEGO. DIMENSIONES, ETC
@@ -16,6 +19,5 @@ program tobyGame {
 	game.cellSize(64)
 	manejadorDeNivel.cargarNivel()
 	
-
 	game.start()
 }

@@ -41,6 +41,7 @@ method position() = game.origin()
 	
 	method ubicarToby(){
 		game.addVisual(toby)
+		game.onCollideDo(toby, {visualColisionado => visualColisionado.choqueConToby()})
 	}
 	
 	method setInputs(manejadorDeNivel) {

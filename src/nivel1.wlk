@@ -17,7 +17,7 @@ method position() = game.origin()
 	 method song() {
 	 	return "sonidos/nivel1.mp3"
 	 }
-	 
+	
 	 method ubicarMonstruos() {
 	 	const monstruos = repositorioDeMonstruos.nivel1()
 	 	monstruos.forEach{mounstro => game.addVisual(mounstro)}
@@ -39,6 +39,7 @@ method position() = game.origin()
 	}
 	method ubicarToby(){
 		game.addVisual(toby)
+		game.onCollideDo(toby, {visualColisionado => visualColisionado.choqueConToby(toby)})
 	}
 	
 	method setInputs(manejadorDeNivel) {
