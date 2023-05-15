@@ -11,7 +11,7 @@ object nivel1{
 method position() = game.origin()
 	
 	method image() {
-	 	return "nivel1.png"
+	 	return "fondo.png"
 	 }
 	 method song() {
 	 	return "sonidos/nivel1.mp3"
