@@ -4,6 +4,7 @@ import mounstros.*
 import huesos.*
 import Muro.*
 import repositorioDeMuros.*
+import trampas.*
 
 object nivel2{
 	
@@ -32,6 +33,12 @@ method position() = game.origin()
 		muros.forEach{muro => game.addVisual(muro)}
 		
 	}
+	
+	method ubicarTrampas(){
+		const trampas = repositorioDeTrampas.nivel2()
+		trampas.forEach{trampa => game.addVisual(trampa)}
+	
+	
 	method ubicarToby(){
 		game.addVisual(toby)
 	}
@@ -45,5 +52,7 @@ method position() = game.origin()
 		self.ubicarMounstros()
 		self.ubicarHuesos()
 		self.ubicarToby()
+		self.ubicarTrampas()
+		}
 	}
 }
