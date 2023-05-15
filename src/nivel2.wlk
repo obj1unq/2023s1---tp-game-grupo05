@@ -1,17 +1,15 @@
 import wollok.game.*
-import extras.*
 import toby.*
-import monstruos.*
+import mounstros.*
 import huesos.*
 import Muro.*
 import repositorioDeMuros.*
-import movimientosDeToby.*
+import trampas.*
 
-object nivel2 {
+object nivel2{
 	
-	method position() {
-		return game.origin()
-	}
+method position() = game.origin()
+	
 	
 	method image() {
 	 	return "nivel2.png"
@@ -20,9 +18,9 @@ object nivel2 {
 	 	return "sonidos/nivel2.mp3"
 	 }
 	 
-	 method ubicarMonstruos() {
-	 	const monstruos = repositorioDeMonstruos.nivel2()
-	 	monstruos.forEach{monstruo => game.addVisual(monstruo)}
+	 method ubicarMounstros() {
+	 	const mounstros = repositorioDeMounstros.nivel2()
+	 	mounstros.forEach{mounstro => game.addVisual(mounstro)}
 	 }
 	 
 	 method ubicarHuesos() {
@@ -36,19 +34,25 @@ object nivel2 {
 		
 	}
 	
+	method ubicarTrampas(){
+		const trampas = repositorioDeTrampas.nivel2()
+		trampas.forEach{trampa => game.addVisual(trampa)}
+	
+	
 	method ubicarToby(){
 		game.addVisual(toby)
 	}
 	
 	method setInputs(manejadorDeNivel) {
-		keyboard.space().onPressDo({manejadorDeNivel.avanzarNivel()})
-		movimientosDeToby.registrarMovimientos()
+		keyboard.space().onPressDo{ manejadorDeNivel.avanzarNivel() }
 	}
 	
 	method agregaElementos() {
 		self.ubicarMuros()
-		self.ubicarMonstruos()
+		self.ubicarMounstros()
 		self.ubicarHuesos()
 		self.ubicarToby()
+		self.ubicarTrampas()
+		}
 	}
 }
