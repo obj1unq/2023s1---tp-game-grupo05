@@ -32,6 +32,11 @@ object arriba {
 	method puedeMover(objeto, cantidad) {
 		return screen.puedeIr(self.proxima(objeto, cantidad))
 	}
+	method accionar(objeto, cantidad) {
+		return (self.proxima(objeto, cantidad)).accionarConMons()
+	}
+	
+	
 	
 	method proxima(objeto, cantidad) {
 		return objeto.position().up(cantidad)

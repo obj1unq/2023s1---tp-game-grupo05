@@ -6,13 +6,12 @@ import manejadorDeNivel.*
 import trampas.*
 
 program tobyGame {
-	
+	// SOLO DATOS GENERICOS DEL JUEGO. DIMENSIONES, ETC
 	// tablero 1024*1024
 	// cada celda 64*64
 	game.title("Toby: The secret mine")
 	game.width(16)
 	game.height(16)
-	game.onTick(3000,"sacarTrampa",{ Trampa.cambiar() })
 
 	game.cellSize(64)
 	manejadorDeNivel.cargarNivel()
