@@ -1,9 +1,5 @@
-
 import wollok.game.*
 import soundProducer.*
-
-
-
 
 object imagenDePortada {
 
@@ -13,7 +9,6 @@ object imagenDePortada {
 	
 	method iniciarJuego(){
 		soundProducer.sound("sonidos/portada.mp3").play()
-				game.start()
-	}
-	
+		game.start()
+	}	
 }

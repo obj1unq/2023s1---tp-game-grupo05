@@ -3,6 +3,7 @@ import wollok.game.*
 class Hueso {
 	var property positionX
 	var property positionY
+	const property atravesable = true
 	
 	method image() {
 		return "hueso.png"

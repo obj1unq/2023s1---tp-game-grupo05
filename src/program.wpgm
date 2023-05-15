@@ -12,8 +12,7 @@ program tobyGame {
 	game.title("Toby: The secret mine")
 	game.width(16)
 	game.height(16)
-	game.onTick(3000,"sacarTrampa",{ Trampa.cambiar() })
-
+	
 	game.cellSize(64)
 	manejadorDeNivel.cargarNivel()
 	
