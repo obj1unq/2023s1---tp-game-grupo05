@@ -24,5 +24,9 @@ object nivelInicial {
 	method agregaElementos() {
 		
 	}
+	
+	method modificarPortada() {
+		
+	}
 }
 

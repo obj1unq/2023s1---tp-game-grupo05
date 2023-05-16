@@ -7,7 +7,7 @@ import repositorioDeMuros.*
 import trampas.*
 import movimientosDeToby.*
 
-object nivel1{
+object nivel1 {
 	
 method position() = game.origin()
 	
@@ -20,7 +20,7 @@ method position() = game.origin()
 	
 	 method ubicarMonstruos() {
 	 	const monstruos = repositorioDeMonstruos.nivel1()
-	 	monstruos.forEach{mounstro => game.addVisual(mounstro)}
+	 	monstruos.forEach{monstruo => game.addVisual(monstruo)}
 	 }
 	 
 	 method ubicarHuesos() {
@@ -37,9 +37,10 @@ method position() = game.origin()
 		const trampas = repositorioDeTrampas.nivel1()
 		trampas.forEach{trampa => game.addVisual(trampa)}
 	}
+	
 	method ubicarToby(){
 		game.addVisual(toby)
-		game.onCollideDo(toby, {visualColisionado => visualColisionado.choqueConToby(toby)})
+		game.onCollideDo(toby, {visualColisionado => visualColisionado.chocar(toby)})
 	}
 	
 	method setInputs(manejadorDeNivel) {
@@ -53,5 +54,9 @@ method position() = game.origin()
 		self.ubicarHuesos()
 		self.ubicarToby()
 		self.ubicarTrampas()
+	}
+	
+	method modificarPortada() {
+		
 	}
 }

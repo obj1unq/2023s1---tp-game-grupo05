@@ -13,13 +13,18 @@ class Monstruo {
 		return new Position(x = positionX, y = positionY)
 	}
 	
-	method choqueConToby(toby) {
-		if (toby.cantidadDeHuesos() >= 1){
+	method chocar(personaje) {
+		if (personaje.cantidadDeHuesos() >= 1) {
 			game.removeVisual(self)
-			toby.eliminarMonstruos() 
-		 }else{ toby.perder()  }
+			personaje.eliminarMonstruos() 
+		 } else { 
+		 	game.say(self, "¡Necesitas un hueso para matarme!")
+		 	personaje.perder()
+		 }
      } 	
 }
+
+
 object repositorioDeMonstruos {
 	
 	method nivel1() {

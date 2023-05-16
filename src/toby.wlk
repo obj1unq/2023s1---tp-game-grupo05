@@ -20,16 +20,19 @@ object toby {
 	}
 	
 	 method comer() {
+	 	game.say(self, "¡Ya puedo matar al monstruo!")
 		cantidadDeHuesos = cantidadDeHuesos + 1
 	}
 	
-	method eliminarMonstruos(){
+	method eliminarMonstruos() {
 		cantidadDeHuesos = cantidadDeHuesos - 1
 	}
-	method perder(){
-		manejadorDeNivel.reiniciarJuego()
+	
+	method perder() {
+		manejadorDeNivel.finalizarJuego()
 	}
 }
+
 	
 object arriba {
 

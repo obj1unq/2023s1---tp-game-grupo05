@@ -8,7 +8,7 @@ import extras.*
 import nivel1.*
 
 object manejadorDeNivel {
-	const niveles =[nivelInicial, nivel1 , nivel2, nivel3, finDelJuego] //, nivelUno, nivelDos, nivelTres, finDelJuego
+	const niveles =[nivelInicial, nivel1 , nivel2, nivel3, finDelJuego] 
 	var nivelActual = 0
 	var currentMusic
 	
@@ -18,7 +18,6 @@ object manejadorDeNivel {
 		self.agregarElementos(nivel)
 		self.ejecutarMusica(nivel)
 		game.schedule(10, { nivel.setInputs(self)})
-		
 	}
 	
 	method dibujarFondo(nivel) {
@@ -41,17 +40,20 @@ object manejadorDeNivel {
 	}
 	
 	method avanzarNivel() {
-	  nivelActual++
-	  game.clear()
-	  currentMusic.stop()
-	  self.cargarNivel()
+	  	nivelActual++
+	  	game.clear()
+	  	currentMusic.stop()
+	  	self.cargarNivel()
 	}
 	
-	method reiniciarJuego() {
-	  nivelActual = 0
-	  game.clear()
-	  currentMusic.stop()
-	  self.cargarNivel()
+	method finalizarJuego() {
+		nivelActual = 4
+		finDelJuego.modificarPortada()
+	  	game.schedule(1000, {
+	  		game.clear()
+			currentMusic.stop()
+			self.cargarNivel()
+		})
 	}
 }
 

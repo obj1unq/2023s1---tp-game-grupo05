@@ -26,6 +26,7 @@ class Trampa {
 	method cambiar() {
 		visible = !visible
 	}
+	
 }
 
 

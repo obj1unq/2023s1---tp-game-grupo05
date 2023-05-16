@@ -11,11 +11,12 @@ class Hueso {
 		return new Position(x = positionX, y = positionY)
 	}
 	
-	method choqueConToby(toby) {
+	method chocar(personaje) {
+		personaje.comer()
 		game.removeVisual(self)
-		toby.comer()
 	}
 }
+
 object repositorioDeHuesos {
 	
 	method nivel1() {

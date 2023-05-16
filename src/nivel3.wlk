@@ -21,7 +21,7 @@ method position() = game.origin()
 	 
 	 method ubicarMonstruos() {
 	 	const monstruos = repositorioDeMonstruos.nivel3()
-	 	monstruos.forEach{mounstro => game.addVisual(mounstro)}
+	 	monstruos.forEach{monstruo => game.addVisual(monstruo)}
 	 }
 	 
 	 method ubicarHuesos() {
@@ -41,7 +41,7 @@ method position() = game.origin()
 	
 	method ubicarToby(){
 		game.addVisual(toby)
-		game.onCollideDo(toby, {visualColisionado => visualColisionado.choqueConToby()})
+		game.onCollideDo(toby, {visualColisionado => visualColisionado.chocar(toby)})
 	}
 	
 	method setInputs(manejadorDeNivel) {
@@ -55,5 +55,9 @@ method position() = game.origin()
 		self.ubicarHuesos()
 		self.ubicarToby()
 		self.ubicarTrampas()
-		}
 	}
+	
+	method modificarPortada() {
+		
+	}
+}

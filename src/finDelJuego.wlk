@@ -1,19 +1,21 @@
 import wollok.game.*
 
 object finDelJuego {
+	var property image = "fin.jpg"
 	
-     method position() = game.origin()
-	
-	 method image() {
+     method position() {
+     	return game.origin()
+     }
 	 
-	 	return "fin.jpg"
-	 }
+	 method modificarPortada() {
+		image = "gameOver.jpg"
+	}
+	 
 	 method song() {
 	 	return "sonidos/portada.mp3"
 	 }
 
 	method setInputs(manejadorDeNivel) {
-		
 		keyboard.enter().onPressDo{ 
 			console.println("Enter")
 			manejadorDeNivel.avanzarNivel()
