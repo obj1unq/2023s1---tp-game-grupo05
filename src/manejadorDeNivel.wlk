@@ -55,6 +55,15 @@ object manejadorDeNivel {
 			self.cargarNivel()
 		})
 	}
+	
+	method reiniciarJuego() {
+		nivelActual = 0
+	  	game.schedule(1000, {
+	  		game.clear()
+			currentMusic.stop()
+			self.cargarNivel()
+		})
+	}
 }
 
 

@@ -20,13 +20,20 @@ class Trampa {
 	method image() {
 		if (visible)
 			return "trampa.png"
-		return "desarmada.png"
+		return "TrampaDesarmada.png"
 	}
 	
 	method cambiar() {
 		visible = !visible
 	}
 	
+	method chocar(personaje) {
+		console.println(visible)
+		if (visible) {
+			game.say(personaje, "¡Pisé una trampa!")
+	 		personaje.perder()
+	 	}
+	}
 }
 
 

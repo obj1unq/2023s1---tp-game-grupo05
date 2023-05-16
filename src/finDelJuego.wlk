@@ -17,8 +17,7 @@ object finDelJuego {
 
 	method setInputs(manejadorDeNivel) {
 		keyboard.enter().onPressDo{ 
-			console.println("Enter")
-			manejadorDeNivel.avanzarNivel()
+			manejadorDeNivel.reiniciarJuego()
 		}
 	}
 	

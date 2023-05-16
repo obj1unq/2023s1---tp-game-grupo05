@@ -62,4 +62,8 @@ method position() = game.origin()
 	method modificarPortada() {
 		
 	}
+	
+	method chocar(personaje) {
+	 	
+	 }
 }

@@ -17,6 +17,10 @@ method position() = game.origin()
 	 method song() {
 	 	return "sonidos/nivel1.mp3"
 	 }
+	 
+	 method chocar(personaje) {
+	 	
+	 }
 	
 	 method ubicarMonstruos() {
 	 	const monstruos = repositorioDeMonstruos.nivel1()
