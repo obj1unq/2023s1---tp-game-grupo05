@@ -39,41 +39,38 @@ class Trampa {
 
 object repositorioDeTrampas {
 	
-	method nivel1(){
+	method nivel1() {
 		const trampas = []
-		trampas.add(new Trampa(positionX=5,positionY=6))
-		trampas.add(new Trampa(positionX=1,positionY=4))
-		trampas.add(new Trampa(positionX=8,positionY=8))
+		trampas.add(new Trampa(positionX = 15, positionY = 1))
+		trampas.add(new Trampa(positionX = 5, positionY = 8))
+		trampas.add(new Trampa(positionX = 3, positionY = 13))
 		
 		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
 		
 		return trampas
-		
 	}
 	
-	method nivel2(){
+	method nivel2() {
 	const trampas = []
 		
-		trampas.add(new Trampa(positionX=8,positionY=12))
-		trampas.add(new Trampa(positionX=3,positionY=10))
-		trampas.add(new Trampa(positionX=4,positionY=15))
+		trampas.add(new Trampa(positionX = 14, positionY = 12))
+		trampas.add(new Trampa(positionX = 3, positionY = 10))
+		trampas.add(new Trampa(positionX = 4, positionY = 15))
 		
 		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
 		
 		return trampas
-		
 	}
 	
-	method nivel3(){
+	method nivel3() {
 	const trampas = []
 		
-		trampas.add(new Trampa(positionX=14,positionY=7))
-		trampas.add(new Trampa(positionX=9,positionY=13))
-		trampas.add(new Trampa(positionX=2,positionY=11))
+		trampas.add(new Trampa(positionX = 14, positionY = 7))
+		trampas.add(new Trampa(positionX = 9, positionY = 13))
+		trampas.add(new Trampa(positionX = 4, positionY = 2))
 		
 		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
 		
 		return trampas
-		
 	}
 }

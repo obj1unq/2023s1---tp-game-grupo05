@@ -6,6 +6,7 @@ object toby {
 	var property position = game.at(0,0)
 	var property  orientacion = derecha
 	var property cantidadDeHuesos = 0
+	var property cantidadDeMonstruos = 0
 
 	method image() {
 		return orientacion.imagenDeToby()
@@ -25,7 +26,17 @@ object toby {
 	}
 	
 	method eliminarMonstruos() {
+		cantidadDeMonstruos = cantidadDeMonstruos + 1
 		cantidadDeHuesos = cantidadDeHuesos - 1
+		if (cantidadDeMonstruos == 3) {
+			self.ganar()
+			cantidadDeMonstruos = 0
+		}
+	}
+	
+	method ganar() {
+		game.say(self, "¡Mate todos los monstruos!")
+		game.schedule(1000, {manejadorDeNivel.avanzarNivel()})
 	}
 	
 	method perder() {
