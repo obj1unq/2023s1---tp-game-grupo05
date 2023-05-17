@@ -1,0 +1,23 @@
+import toby.*
+import wollok.game.*
+import soundProducer.*
+import Portada.*
+import manejadorDeNivel.*
+import trampas.*
+import huesos.*
+import monstruos.*
+
+
+program tobyGame {
+	// SOLO DATOS GENERICOS DEL JUEGO. DIMENSIONES, ETC
+	// tablero 1024*1024
+	// cada celda 64*64
+	game.title("Toby: The secret mine")
+	game.width(16)
+	game.height(16)
+
+	game.cellSize(64)
+	manejadorDeNivel.cargarNivel()
+	
+	game.start()
+}
