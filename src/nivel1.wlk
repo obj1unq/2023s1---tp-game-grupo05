@@ -43,6 +43,8 @@ method position() = game.origin()
 	}
 	
 	method ubicarToby(){
+		toby.position(game.at(0,0))
+		toby.orientacion(derecha)
 		game.addVisual(toby)
 		game.onCollideDo(toby, {visualColisionado => visualColisionado.chocar(toby)})
 	}

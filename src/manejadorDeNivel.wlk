@@ -22,12 +22,12 @@ object manejadorDeNivel {
 	
 	method dibujarFondo(nivel) {
 		game.addVisual(nivel)
-		//game.ground(image)
+		
 	}
 	
 	method agregarElementos(nivel) {
 		nivel.agregaElementos()
-		//game.ground(image)
+		
 	}
 	
 	method ejecutarMusica(nivel) {

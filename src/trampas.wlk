@@ -69,7 +69,7 @@ object repositorioDeTrampas {
 		
 		trampas.add(new Trampa(positionX=14,positionY=7))
 		trampas.add(new Trampa(positionX=9,positionY=13))
-		trampas.add(new Trampa(positionX=2,positionY=10))
+		trampas.add(new Trampa(positionX=2,positionY=11))
 		
 		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
 		
