@@ -330,7 +330,6 @@ object repositorioDeMuros {
 		muros.add(new Muro(positionX = 11, positionY = 3))
 		muros.add(new Muro(positionX = 11, positionY = 4))
 		muros.add(new Muro(positionX = 11, positionY = 5))
-		muros.add(new Muro(positionX = 11, positionY = 6))
 		muros.add(new Muro(positionX = 11, positionY = 7))
 		muros.add(new Muro(positionX = 11, positionY = 8))
 		muros.add(new Muro(positionX = 11, positionY = 9))
@@ -364,6 +363,5 @@ object repositorioDeMuros {
 		muros.add(new Muro(positionX = 15, positionY = 10))
 		
 		return muros
-
  	}		
 }

@@ -53,8 +53,8 @@ object repositorioDeTrampas {
 	method nivel2() {
 	const trampas = []
 		
-		trampas.add(new Trampa(positionX = 14, positionY = 12))
-		trampas.add(new Trampa(positionX = 3, positionY = 10))
+		trampas.add(new Trampa(positionX = 15, positionY = 3))
+		trampas.add(new Trampa(positionX = 1, positionY = 10))
 		trampas.add(new Trampa(positionX = 4, positionY = 15))
 		
 		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
@@ -65,7 +65,7 @@ object repositorioDeTrampas {
 	method nivel3() {
 	const trampas = []
 		
-		trampas.add(new Trampa(positionX = 14, positionY = 7))
+		trampas.add(new Trampa(positionX = 11, positionY = 6))
 		trampas.add(new Trampa(positionX = 9, positionY = 13))
 		trampas.add(new Trampa(positionX = 4, positionY = 2))
 		
