@@ -13,7 +13,7 @@ object finDelJuego {
 	}
 	 
 	 method song() {
-	 	return "sonidos/portada.mp3"
+	 	return "sonidos/gameover.mp3"
 	 }
 
 	method setInputs(manejadorDeNivel) {

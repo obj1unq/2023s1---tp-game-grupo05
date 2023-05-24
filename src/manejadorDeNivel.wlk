@@ -47,7 +47,7 @@ object manejadorDeNivel {
 	method finalizarJuego() {
 		nivelActual = 4
 		finDelJuego.modificarPortada()
-	  	game.schedule(1000, {
+	  	game.schedule(500, {
 	  		game.clear()
 			currentMusic.stop()
 			self.cargarNivel()
@@ -56,7 +56,7 @@ object manejadorDeNivel {
 	
 	method reiniciarJuego() {
 		nivelActual = 0
-	  	game.schedule(1000, {
+	  	game.schedule(500, {
 	  		game.clear()
 			currentMusic.stop()
 			self.cargarNivel()

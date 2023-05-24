@@ -1,5 +1,6 @@
 import wollok.game.*
 import toby.*
+import soundProducer.*
  
 class Hueso {
 	var property positionX
@@ -13,6 +14,10 @@ class Hueso {
 	
 	method chocar(personaje) {
 		personaje.comer()
+		game.schedule(50, {
+			soundProducer.sound("sonidos/comiendo.mp3").play()	
+		})
+		 
 		game.removeVisual(self)
 	}
 }

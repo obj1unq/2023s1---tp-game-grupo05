@@ -4,6 +4,7 @@ import monstruos.*
 import huesos.*
 import Muro.*
 import repositorioDeMuros.*
+import soundProducer.*
 
 
 class Trampa {
@@ -31,9 +32,11 @@ class Trampa {
 		console.println(visible)
 		if (visible) {
 			game.say(personaje, "¡Pisé una trampa!")
+			soundProducer.sound("sonidos/muerte.mp3").play()
 	 		personaje.perder()
-	 	}
-	}
+	 	} 
+		  
+	}	
 }
 
 

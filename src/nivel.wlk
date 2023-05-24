@@ -48,8 +48,8 @@ class Nivel {
 		self.ubicarMuros()
 		self.ubicarMonstruos()
 		self.ubicarHuesos()
-		self.ubicarToby()
 		self.ubicarTrampas()
+		self.ubicarToby()
 	}
 	
 	method modificarPortada() {

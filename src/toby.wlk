@@ -7,7 +7,7 @@ object toby {
 	var property  orientacion = derecha
 	var property cantidadDeHuesos = 0
 	var property cantidadDeMonstruos = 0
-
+ 
 	method image() {
 		return orientacion.imagenDeToby()
 	}
