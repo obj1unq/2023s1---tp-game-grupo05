@@ -44,9 +44,9 @@ object toby {
 	}
 }
 
-	
-object arriba {
 
+class Direccion {
+	
 	method mover(objeto, cantidad) {
 		objeto.orientacion(self)
 		if (self.puedeMover(objeto, cantidad)) {
@@ -58,78 +58,55 @@ object arriba {
 		return screen.puedeIr(self.proxima(objeto, cantidad))
 	}
 	
-	method proxima(objeto, cantidad) {
+	method proxima(objeto, cantidad) 
+	
+	method imagenDeToby()
+}
+	
+	
+object arriba inherits Direccion {
+	
+	override method proxima(objeto, cantidad) {
 		return objeto.position().up(cantidad)
 	}
 	
-	method imagenDeToby() {
+	override method imagenDeToby() {
 		return "toby-a.png"  
 	}
 }
 
 
-object abajo {
+object abajo inherits Direccion {
 	
-	method mover(objeto, cantidad) {
-		objeto.orientacion(self)
-		if (self.puedeMover(objeto, cantidad)) {
-			screen.mover(objeto, self.proxima(objeto, cantidad))
-		}
-	}
-	
-	method puedeMover(objeto, cantidad) {
-		return screen.puedeIr(self.proxima(objeto, cantidad))
-	}
-	
-	method proxima(objeto, cantidad) {
+	override method proxima(objeto, cantidad) {
 		return objeto.position().down(cantidad)
 	}
 	
-	method imagenDeToby() {
+	override method imagenDeToby() {
 		return "toby-ab.png" 
 	}
 }
 
-object derecha {
+
+object derecha inherits Direccion {
 	
-	method mover(objeto, cantidad) {
-		objeto.orientacion(self)
-		if (self.puedeMover(objeto, cantidad)) {
-			screen.mover(objeto, self.proxima(objeto, cantidad))
-		}
-	}
-	
-	method puedeMover(objeto, cantidad) {
-		return screen.puedeIr(self.proxima(objeto, cantidad))
-	}
-	
-	method proxima(objeto, cantidad) {
+	override method proxima(objeto, cantidad) {
 		return objeto.position().right(cantidad)
 	}
 	
-	method imagenDeToby() {
+	override method imagenDeToby() {
 		return "toby-d.png" 
 	}
 }
 
-object izquierda {
+
+object izquierda inherits Direccion {
 	
-	method mover(objeto, cantidad) {
-		objeto.orientacion(self)
-		if (self.puedeMover(objeto, cantidad)) {
-			screen.mover(objeto, self.proxima(objeto, cantidad))
-		}
-	}
-	
-	method puedeMover(objeto, cantidad) {
-		return screen.puedeIr(self.proxima(objeto, cantidad))
-	}
-	
-	method proxima(objeto, cantidad) {
+	override method proxima(objeto, cantidad) {
 		return objeto.position().left(cantidad)
 	}
 	
-	method imagenDeToby() {
+	override method imagenDeToby() {
 		return "toby-iz.png" 
 	}
 }
