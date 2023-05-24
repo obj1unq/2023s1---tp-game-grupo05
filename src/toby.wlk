@@ -1,6 +1,7 @@
 import wollok.game.*
 import extras.*
 import manejadorDeNivel.*
+import soundProducer.*
 
 object toby {
 	var property position = game.at(0,0)
@@ -48,6 +49,7 @@ object toby {
 class Direccion {
 	
 	method mover(objeto, cantidad) {
+		 soundProducer.sound("sonidos/tobycaminando.mp3").play()
 		objeto.orientacion(self)
 		if (self.puedeMover(objeto, cantidad)) {
 			screen.mover(objeto, self.proxima(objeto, cantidad))
