@@ -1,4 +1,5 @@
 import wollok.game.*
+import manejadorDeNivel.*
 
 object finDelJuego {
 	var property image = "fin.jpg"

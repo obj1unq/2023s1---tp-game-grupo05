@@ -1,11 +1,9 @@
 import wollok.game.*
 import soundProducer.*
 import NivelInicial.*
-import nivel2.*
-import nivel3.*
 import finDelJuego.*
 import extras.*
-import nivel1.*
+import nivel.*
 
 object manejadorDeNivel {
 	const niveles =[nivelInicial, nivel1 , nivel2, nivel3, finDelJuego] 
