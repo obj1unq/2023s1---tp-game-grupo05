@@ -1,7 +1,5 @@
 import wollok.game.*
 import soundProducer.*
-import NivelInicial.*
-import finDelJuego.*
 import extras.*
 import nivel.*
 

@@ -2,10 +2,10 @@ import toby.*
 import wollok.game.*
 import soundProducer.*
 import Portada.*
-import manejadorDeNivel.*
 import trampas.*
 import huesos.*
 import monstruos.*
+import manejadorDeNivel.*
 
 
 program tobyGame {

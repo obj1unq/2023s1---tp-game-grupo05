@@ -7,136 +7,145 @@ import repositorioDeMuros.*
 import trampas.*
 import movimientosDeToby.*
 
-
 class Nivel {
 	
-	 method position() {
+	method position() {
 		return game.origin()
-	 }
+	}
 	
-	 method image()
+	method image()
+	 
+	method song()
 	
-	 method song() {
-	 	return "sonidos/nivel1.mp3"
-	 }
+	method setInputs(manejadorDeNivel) 
+	
+	method agregaElementos() {
+		
+	}
+	
+}
+
+
+class NivelLaberinto inherits Nivel {
+	
+	override method song() {
+		return "sonidos/nivel1.mp3"
+	}
+	
+	method chocar(personaje) {}
 	 
-	 method chocar(personaje) {
-	 	
-	 }
+	method ubicar(objetosAUbicar) {
+	 	objetosAUbicar.forEach{objeto => game.addVisual(objeto)}
+	}
 	 
-	 method ubicarMonstruos()
-	 
-	 method ubicarHuesos()
-	 
-	 method ubicarMuros()
-	 
-	 method ubicarTrampas()
-	 
-	 method ubicarToby(){
+	method ubicarToby(){
 		toby.position(game.at(0,0))
 		toby.orientacion(derecha)
 		game.addVisual(toby)
 		game.onCollideDo(toby, {visualColisionado => visualColisionado.chocar(toby)})
 	}
 	
-	method setInputs(manejadorDeNivel) {
+	override method setInputs(manejadorDeNivel) {
 		keyboard.space().onPressDo{ manejadorDeNivel.avanzarNivel() }
 		movimientosDeToby.registrarMovimientos()
 	}
 	
-	method agregaElementos() {
-		self.ubicarMuros()
-		self.ubicarMonstruos()
-		self.ubicarHuesos()
-		self.ubicarTrampas()
+	override method agregaElementos() {
 		self.ubicarToby()
-	}
-	
-	method modificarPortada() {
-		
 	}
 }
 
 
-object nivel1 inherits Nivel {
-	
+object nivel1 inherits NivelLaberinto {
+
 	override method image() {
 	 	return "fondo.png"
 	 }
-	
-	 override method ubicarMonstruos() {
-	 	const monstruos = repositorioDeMonstruos.nivel1()
-	 	monstruos.forEach{monstruo => game.addVisual(monstruo)}
-	 }
 	 
-	 override method ubicarHuesos() {
-	 	const huesos = repositorioDeHuesos.nivel1()
-	 	huesos.forEach{hueso => game.addVisual(hueso)}
+	 override method agregaElementos() {
+	 	super()
+	 	self.ubicar(repositorioDeMonstruos.nivel1())
+	 	self.ubicar(repositorioDeHuesos.nivel1())
+	 	self.ubicar(repositorioDeMuros.nivel1())
+	 	self.ubicar(repositorioDeTrampas.nivel1())
 	 }
-	
-	override method ubicarMuros() {
-		const muros = repositorioDeMuros.nivel1()
-		muros.forEach{muro => game.addVisual(muro)}
-	}
-	
-	override method ubicarTrampas(){
-		const trampas = repositorioDeTrampas.nivel1()
-		trampas.forEach{trampa => game.addVisual(trampa)}
-	}
 }
 
 
-object nivel2 inherits Nivel {
+object nivel2 inherits NivelLaberinto {
 	
 	override method image() {
 	 	return "nivel2.png"
 	 }
 	
-	 override method ubicarMonstruos() {
-	 	const monstruos = repositorioDeMonstruos.nivel2()
-	 	monstruos.forEach{monstruo => game.addVisual(monstruo)}
+	 override method agregaElementos() {
+	 	super()
+	 	self.ubicar(repositorioDeMonstruos.nivel2())
+	 	self.ubicar(repositorioDeHuesos.nivel2())
+	 	self.ubicar(repositorioDeMuros.nivel2())
+	 	self.ubicar(repositorioDeTrampas.nivel2())
 	 }
-	 
-	 override method ubicarHuesos() {
-	 	const huesos = repositorioDeHuesos.nivel2()
-	 	huesos.forEach{hueso => game.addVisual(hueso)}
-	 }
-	
-	override method ubicarMuros() {
-		const muros = repositorioDeMuros.nivel2()
-		muros.forEach{muro => game.addVisual(muro)}
-	}
-	
-	override method ubicarTrampas(){
-		const trampas = repositorioDeTrampas.nivel2()
-		trampas.forEach{trampa => game.addVisual(trampa)}
-	}
 }
 
 
-object nivel3 inherits Nivel {
+object nivel3 inherits NivelLaberinto {
 	
 	override method image() {
 	 	return "nivel3.png"
 	 }
 	
-	 override method ubicarMonstruos() {
-	 	const monstruos = repositorioDeMonstruos.nivel3()
-	 	monstruos.forEach{monstruo => game.addVisual(monstruo)}
+	 override method agregaElementos() {
+	 	super()
+	 	self.ubicar(repositorioDeMonstruos.nivel3())
+	 	self.ubicar(repositorioDeHuesos.nivel3())
+	 	self.ubicar(repositorioDeMuros.nivel3())
+	 	self.ubicar(repositorioDeTrampas.nivel3())
 	 }
-	 
-	 override method ubicarHuesos() {
-	 	const huesos = repositorioDeHuesos.nivel3()
-	 	huesos.forEach{hueso => game.addVisual(hueso)}
-	 }
+}
+
+
+object finDelJuego inherits Nivel {
+	var imagen = "fin.jpg"
 	
-	override method ubicarMuros() {
-		const muros = repositorioDeMuros.nivel3()
-		muros.forEach{muro => game.addVisual(muro)}
+	override method image() {
+		return imagen
+	}
+	 
+	 method modificarPortada() {
+		imagen = "gameOver.jpg"
+	}
+	 
+	 override method song() {
+	 	return "sonidos/gameover.mp3"
+	 }
+
+	override method setInputs(manejadorDeNivel) {
+		keyboard.enter().onPressDo{ 
+			manejadorDeNivel.reiniciarJuego()
+		}
 	}
 	
-	override method ubicarTrampas(){
-		const trampas = repositorioDeTrampas.nivel3()
-		trampas.forEach{trampa => game.addVisual(trampa)}
+}
+
+
+object nivelInicial inherits Nivel {
+	
+	 override method image() {
+	 	return "PortadaOriginal.jpg"
+	 }
+	 
+	 override method song() {
+	 	return "sonidos/portada.mp3"
+	 }
+
+	override method setInputs(manejadorDeNivel) {
+		keyboard.enter().onPressDo { 
+			console.println("Enter")
+			manejadorDeNivel.avanzarNivel()
+		}
+	}
+	
+	method modificarPortada() {
+		
 	}
 }
