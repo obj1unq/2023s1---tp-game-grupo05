@@ -1,5 +1,4 @@
 import wollok.game.*
-import extras.*
 import manejadorDeNivel.*
 import soundProducer.*
 
@@ -52,17 +51,31 @@ class Direccion {
 		soundProducer.sound("sonidos/tobycaminando.mp3").play()
 		objeto.orientacion(self)
 		if (self.puedeMover(objeto, cantidad)) {
-			screen.mover(objeto, self.proxima(objeto, cantidad))
+			objeto.position(self.proxima(objeto, cantidad))
 		}
 	}
 	
 	method puedeMover(objeto, cantidad) {
-		return screen.puedeIr(self.proxima(objeto, cantidad))
+		return self.puedeIr(self.proxima(objeto, cantidad))
+	}
+	
+	method puedeIr(position) {
+		return self.dentro(position) and not self.hayMuro(position)
+	}
+	
+	method dentro(position) {
+		return position.x().between(0, game.width()-1) and
+				position.y().between(0, game.height()-1)
+	}
+	
+	method hayMuro(position) {
+		return game.getObjectsIn(position).any({x => not x.atravesable()})
 	}
 	
 	method proxima(objeto, cantidad) 
 	
 	method imagenDeToby()
+	
 }
 	
 	
