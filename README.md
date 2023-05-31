@@ -7,7 +7,9 @@
 
 ## Capturas
 
-(agregar)
+<img src="screenshot1.png" width="350px" height="350px">
+<img src="screenshot2.png" width="350px" height="350px">
+
 
 ## Reglas de Juego / Instrucciones
 
