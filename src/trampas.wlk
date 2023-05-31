@@ -4,6 +4,7 @@ import monstruos.*
 import huesos.*
 import Muro.*
 import repositorioDeMuros.*
+import soundProducer.*
 
 
 class Trampa {
@@ -28,12 +29,14 @@ class Trampa {
 	}
 	
 	method chocar(personaje) {
-		console.println(visible)
+
 		if (visible) {
 			game.say(personaje, "¡Pisé una trampa!")
+			soundProducer.sound("sonidos/muerte.mp3").play()
 	 		personaje.perder()
-	 	}
-	}
+	 	} 
+		  
+	}	
 }
 
 
@@ -45,8 +48,6 @@ object repositorioDeTrampas {
 		trampas.add(new Trampa(positionX = 5, positionY = 8))
 		trampas.add(new Trampa(positionX = 3, positionY = 13))
 		
-		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
-		
 		return trampas
 	}
 	
@@ -56,9 +57,7 @@ object repositorioDeTrampas {
 		trampas.add(new Trampa(positionX = 15, positionY = 3))
 		trampas.add(new Trampa(positionX = 1, positionY = 10))
 		trampas.add(new Trampa(positionX = 4, positionY = 15))
-		
-		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
-		
+				
 		return trampas
 	}
 	
@@ -68,9 +67,7 @@ object repositorioDeTrampas {
 		trampas.add(new Trampa(positionX = 11, positionY = 6))
 		trampas.add(new Trampa(positionX = 9, positionY = 13))
 		trampas.add(new Trampa(positionX = 4, positionY = 2))
-		
-		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
-		
+				
 		return trampas
 	}
 }

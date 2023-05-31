@@ -2,10 +2,10 @@ import toby.*
 import wollok.game.*
 import soundProducer.*
 import Portada.*
-import manejadorDeNivel.*
 import trampas.*
 import huesos.*
 import monstruos.*
+import manejadorDeNivel.*
 
 
 program tobyGame {
@@ -17,6 +17,7 @@ program tobyGame {
 	game.height(16)
 
 	game.cellSize(64)
+	manejadorDeNivel.inicializar()
 	manejadorDeNivel.cargarNivel()
 	
 	game.start()

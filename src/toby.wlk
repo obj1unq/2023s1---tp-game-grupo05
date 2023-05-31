@@ -1,13 +1,13 @@
 import wollok.game.*
-import extras.*
 import manejadorDeNivel.*
+import soundProducer.*
 
 object toby {
 	var property position = game.at(0,0)
 	var property  orientacion = derecha
 	var property cantidadDeHuesos = 0
 	var property cantidadDeMonstruos = 0
-
+ 
 	method image() {
 		return orientacion.imagenDeToby()
 	}
@@ -44,92 +44,84 @@ object toby {
 	}
 }
 
-	
-object arriba {
 
+class Direccion {
+	
 	method mover(objeto, cantidad) {
+		soundProducer.sound("sonidos/tobycaminando.mp3").play()
 		objeto.orientacion(self)
 		if (self.puedeMover(objeto, cantidad)) {
-			screen.mover(objeto, self.proxima(objeto, cantidad))
+			objeto.position(self.proxima(objeto, cantidad))
 		}
 	}
 	
 	method puedeMover(objeto, cantidad) {
-		return screen.puedeIr(self.proxima(objeto, cantidad))
+		return self.puedeIr(self.proxima(objeto, cantidad))
 	}
 	
-	method proxima(objeto, cantidad) {
+	method puedeIr(position) {
+		return self.dentro(position) and not self.hayMuro(position)
+	}
+	
+	method dentro(position) {
+		return position.x().between(0, game.width()-1) and
+				position.y().between(0, game.height()-1)
+	}
+	
+	method hayMuro(position) {
+		return game.getObjectsIn(position).any({x => not x.atravesable()})
+	}
+	
+	method proxima(objeto, cantidad) 
+	
+	method imagenDeToby()
+	
+}
+	
+	
+object arriba inherits Direccion {
+	
+	override method proxima(objeto, cantidad) {
 		return objeto.position().up(cantidad)
 	}
 	
-	method imagenDeToby() {
+	override method imagenDeToby() {
 		return "toby-a.png"  
 	}
 }
 
 
-object abajo {
+object abajo inherits Direccion {
 	
-	method mover(objeto, cantidad) {
-		objeto.orientacion(self)
-		if (self.puedeMover(objeto, cantidad)) {
-			screen.mover(objeto, self.proxima(objeto, cantidad))
-		}
-	}
-	
-	method puedeMover(objeto, cantidad) {
-		return screen.puedeIr(self.proxima(objeto, cantidad))
-	}
-	
-	method proxima(objeto, cantidad) {
+	override method proxima(objeto, cantidad) {
 		return objeto.position().down(cantidad)
 	}
 	
-	method imagenDeToby() {
+	override method imagenDeToby() {
 		return "toby-ab.png" 
 	}
 }
 
-object derecha {
+
+object derecha inherits Direccion {
 	
-	method mover(objeto, cantidad) {
-		objeto.orientacion(self)
-		if (self.puedeMover(objeto, cantidad)) {
-			screen.mover(objeto, self.proxima(objeto, cantidad))
-		}
-	}
-	
-	method puedeMover(objeto, cantidad) {
-		return screen.puedeIr(self.proxima(objeto, cantidad))
-	}
-	
-	method proxima(objeto, cantidad) {
+	override method proxima(objeto, cantidad) {
 		return objeto.position().right(cantidad)
 	}
 	
-	method imagenDeToby() {
+	override method imagenDeToby() {
 		return "toby-d.png" 
 	}
 }
 
-object izquierda {
+
+object izquierda inherits Direccion {
 	
-	method mover(objeto, cantidad) {
-		objeto.orientacion(self)
-		if (self.puedeMover(objeto, cantidad)) {
-			screen.mover(objeto, self.proxima(objeto, cantidad))
-		}
-	}
-	
-	method puedeMover(objeto, cantidad) {
-		return screen.puedeIr(self.proxima(objeto, cantidad))
-	}
-	
-	method proxima(objeto, cantidad) {
+	override method proxima(objeto, cantidad) {
 		return objeto.position().left(cantidad)
 	}
 	
-	method imagenDeToby() {
+	override method imagenDeToby() {
 		return "toby-iz.png" 
 	}
 }
