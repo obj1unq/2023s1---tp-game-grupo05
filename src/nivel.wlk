@@ -32,6 +32,11 @@ class NivelLaberinto inherits Nivel {
 		return "sonidos/nivel1.mp3"
 	}
 	
+	override method setInputs(manejadorDeNivel) {
+		keyboard.space().onPressDo{ manejadorDeNivel.avanzarNivel() }
+		movimientosDeToby.registrarMovimientos()
+	}
+	
 	method chocar(personaje) {}
 	 
 	method ubicar(objetosAUbicar) {
@@ -45,14 +50,21 @@ class NivelLaberinto inherits Nivel {
 		game.onCollideDo(toby, {visualColisionado => visualColisionado.chocar(toby)})
 	}
 	
-	override method setInputs(manejadorDeNivel) {
-		keyboard.space().onPressDo{ manejadorDeNivel.avanzarNivel() }
-		movimientosDeToby.registrarMovimientos()
-	}
-	
 	override method agregaElementos() {
 		self.ubicarToby()
+		self.ubicar(self.describirHuesos())
+		self.ubicar(self.describirMonstruos())
+		self.ubicar(self.describirTrampas())
+		self.ubicar(self.describirMuro())
 	}
+	
+	method describirHuesos()
+	
+	method describirMonstruos()
+	
+	method describirTrampas()
+	
+	method describirMuro()
 }
 
 
@@ -62,12 +74,40 @@ object nivel1 inherits NivelLaberinto {
 	 	return "fondo.png"
 	 }
 	 
-	 override method agregaElementos() {
-	 	super()
-	 	self.ubicar(repositorioDeMonstruos.nivel1())
-	 	self.ubicar(repositorioDeHuesos.nivel1())
-	 	self.ubicar(repositorioDeMuros.nivel1())
-	 	self.ubicar(repositorioDeTrampas.nivel1())
+	 override method describirHuesos() {
+	 	const huesos  = []
+ 	
+ 		huesos.add(new Hueso(positionX = 13, positionY = 3))
+ 		huesos.add(new Hueso(positionX = 0, positionY = 8))
+ 		huesos.add(new Hueso(positionX = 0, positionY = 14))
+ 	
+ 		return huesos
+	 }
+	 
+	 override method describirMonstruos() {
+	 	const monstruos  = []
+ 	
+	 	monstruos.add(new Monstruo(image="monstruo1.png", positionX = 6, positionY = 4 ))
+	    monstruos.add(new Monstruo(image="monstruo2.png", positionX = 7, positionY = 6 ))
+	    monstruos.add(new Monstruo(image="monstruo3.png", positionX = 3, positionY = 15))	
+	 	
+	 	return monstruos
+	 }
+	 
+	 override method describirTrampas() {
+	 	const trampas = []
+	 	
+		trampas.add(new Trampa(positionX = 15, positionY = 1))
+		trampas.add(new Trampa(positionX = 5, positionY = 8))
+		trampas.add(new Trampa(positionX = 3, positionY = 13))
+		
+		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
+		
+		return trampas
+	 }
+	 
+	 override method describirMuro() {
+	 	return repositorioDeMuros.nivel1()
 	 }
 }
 
@@ -78,12 +118,40 @@ object nivel2 inherits NivelLaberinto {
 	 	return "nivel2.png"
 	 }
 	
-	 override method agregaElementos() {
-	 	super()
-	 	self.ubicar(repositorioDeMonstruos.nivel2())
-	 	self.ubicar(repositorioDeHuesos.nivel2())
-	 	self.ubicar(repositorioDeMuros.nivel2())
-	 	self.ubicar(repositorioDeTrampas.nivel2())
+	override method describirHuesos() {
+		const huesos  = []
+ 	
+	 	huesos.add(new Hueso(positionX = 15, positionY = 0))
+	 	huesos.add(new Hueso(positionX = 0, positionY = 14))
+	 	huesos.add(new Hueso(positionX = 0, positionY = 8))
+	 	
+	 	return huesos
+	}
+	
+	override method describirMonstruos() {
+	 	const monstruos  = []
+ 	
+	 	monstruos.add(new Monstruo(image="monstruo1.png", positionX = 8, positionY = 9))
+	    monstruos.add(new Monstruo(image="monstruo2.png", positionX = 8, positionY = 1))
+	    monstruos.add(new Monstruo(image="monstruo3.png", positionX = 7, positionY = 12))	
+	 	
+	 	return monstruos
+	 }
+	 
+	 override method describirTrampas() {
+	 	const trampas = []
+		
+		trampas.add(new Trampa(positionX = 15, positionY = 3))
+		trampas.add(new Trampa(positionX = 1, positionY = 10))
+		trampas.add(new Trampa(positionX = 4, positionY = 15))
+		
+		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
+		
+		return trampas
+	 }
+	 
+	 override method describirMuro() {
+	 	return repositorioDeMuros.nivel2()
 	 }
 }
 
@@ -93,13 +161,41 @@ object nivel3 inherits NivelLaberinto {
 	override method image() {
 	 	return "nivel3.png"
 	 }
-	
-	 override method agregaElementos() {
-	 	super()
-	 	self.ubicar(repositorioDeMonstruos.nivel3())
-	 	self.ubicar(repositorioDeHuesos.nivel3())
-	 	self.ubicar(repositorioDeMuros.nivel3())
-	 	self.ubicar(repositorioDeTrampas.nivel3())
+	 
+	 override method describirHuesos() {
+	 	const huesos  = []
+ 	
+	 	huesos.add(new Hueso(positionX = 8, positionY = 2))
+	 	huesos.add(new Hueso(positionX = 15, positionY = 0))
+	 	huesos.add(new Hueso(positionX = 12, positionY = 7))
+	 	
+	 	return huesos
+	 }
+	 
+	 override method describirMonstruos() {
+	 	const monstruos  = []
+ 	
+	 	monstruos.add(new Monstruo(image="monstruo1.png", positionX = 10, positionY = 10))
+	    monstruos.add(new Monstruo(image="monstruo2.png", positionX = 0, positionY = 12))
+	    monstruos.add(new Monstruo(image="monstruo3.png", positionX = 15, positionY = 14))	
+	    
+	 	return monstruos
+	 }
+	 
+	 override method describirTrampas() {
+	 	const trampas = []
+		
+		trampas.add(new Trampa(positionX = 11, positionY = 6))
+		trampas.add(new Trampa(positionX = 9, positionY = 13))
+		trampas.add(new Trampa(positionX = 4, positionY = 2))
+		
+		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
+		
+		return trampas
+	 }
+	 
+	 override method describirMuro() {
+	 	return repositorioDeMuros.nivel3()
 	 }
 }
 

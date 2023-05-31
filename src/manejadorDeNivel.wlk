@@ -1,6 +1,5 @@
 import wollok.game.*
 import soundProducer.*
-import extras.*
 import nivel.*
 
 object manejadorDeNivel {
