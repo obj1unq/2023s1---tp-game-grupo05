@@ -1,9 +1,8 @@
-# Toby: The secret mine
+# Toby: The Secret Mine
 
 ## Equipo de desarrollo
 
 - Estefanía Borzi
-- Lucas Lancia
 - Lucía Viazzo
 
 ## Capturas
