@@ -1,10 +1,7 @@
 import wollok.game.*
 import toby.*
-import monstruos.*
-import huesos.*
-import Muro.*
+import elementos.*
 import repositorioDeMuros.*
-import trampas.*
 import movimientosDeToby.*
 
 class Nivel {
@@ -22,7 +19,6 @@ class Nivel {
 	method agregaElementos() {
 		
 	}
-	
 }
 
 

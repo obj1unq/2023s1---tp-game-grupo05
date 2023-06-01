@@ -10,5 +10,4 @@ object movimientosDeToby {
 		keyboard.right().onPressDo({ toby.moveme(derecha, 1)})
 		keyboard.y().onPressDo({ toby.ladrar()})
 	}
-	
 }

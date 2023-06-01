@@ -1,4 +1,4 @@
-import Muro.*
+import elementos.*
 
 object repositorioDeMuros {
 	
