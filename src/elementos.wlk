@@ -68,7 +68,6 @@ class Trampa inherits Elemento {
 	}
 	
 	override method chocar(personaje) {
-		console.println(visible)
 		if (visible) {
 			game.say(personaje, "¡Pisé una trampa!")
 			soundProducer.sound("sonidos/muerte.mp3").play()

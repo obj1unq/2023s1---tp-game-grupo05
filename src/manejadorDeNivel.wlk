@@ -4,7 +4,7 @@ import nivel.*
 
 object manejadorDeNivel {
 	const niveles =[nivelInicial, nivel1 , nivel2, nivel3, finDelJuego] 
-	var nivelActual = 0
+	var property nivelActual = 0
 	var currentMusic
 	
 	method cargarNivel() {

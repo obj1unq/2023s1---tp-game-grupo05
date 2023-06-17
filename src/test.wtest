@@ -1,0 +1,56 @@
+import manejadorDeNivel.*
+import elementos.*
+import toby.*
+import soundProducer.*
+import wollok.game.*
+import nivel.*
+
+describe "Toby test" {
+	
+	const trampa = new Trampa(positionX = 0, positionY = 0)
+	const monstruo = new Monstruo(image = "monstruo1.png", positionX = 1, positionY = 1)
+	const hueso = new Hueso(positionX = 0, positionY = 0)
+	const elementos = [monstruo, hueso]
+	
+	method initialize() {
+	
+    	soundProducer.provider(soundProviderMock)
+    	manejadorDeNivel.nivelActual(1)
+		manejadorDeNivel.cargarNivel()
+		nivel1.ubicar(elementos)
+  	}
+  
+  
+  	test "Toby pisa una trampa activa y muere" {
+	
+	trampa.chocar(toby)
+	assert.equals(4, manejadorDeNivel.nivelActual())
+	}
+
+
+	test "Toby pisa una trampa inactiva y no pasa nada" {
+	
+	trampa.cambiar()
+	trampa.chocar(toby)
+	assert.equals(1, manejadorDeNivel.nivelActual())
+	}
+	
+	
+	test "Toby intenta matar a un monstruo sin haber comido un hueso antes y muere" {
+	
+	assert.equals(0, toby.cantidadDeHuesos())	
+	monstruo.chocar(toby)
+	assert.equals(4, manejadorDeNivel.nivelActual())
+	}
+	
+	
+	test "Toby agarra un hueso y ahora puede matar al monstruo" {
+	
+	hueso.chocar(toby)
+	assert.equals(1, toby.cantidadDeHuesos())	
+	
+	monstruo.chocar(toby)
+	assert.equals(1, toby.cantidadDeMonstruos())
+	assert.equals(1, manejadorDeNivel.nivelActual())
+	}
+}
