@@ -22,7 +22,6 @@ object manejadorDeNivel {
 	
 	method agregarElementos(nivel) {
 		nivel.agregaElementos()
-		
 	}
 	
 	method ejecutarMusica(nivel) {

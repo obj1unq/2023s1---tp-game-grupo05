@@ -35,8 +35,7 @@ object toby {
 	}
 	
 	method ganar() {
-		game.say(self, "¡Mate todos los monstruos!")
-		game.schedule(1000, {manejadorDeNivel.avanzarNivel()})
+		manejadorDeNivel.avanzarNivel()
 	}
 	
 	method perder() {

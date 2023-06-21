@@ -42,7 +42,7 @@ class Monstruo inherits Elemento {
 		if (personaje.cantidadDeHuesos() >= 1) {
 			game.removeVisual(self)
 			personaje.eliminarMonstruos()
-		   soundProducer.sound("sonidos/monstruomuere.mp3").play()
+		    soundProducer.sound("sonidos/monstruomuere.mp3").play()
 		 } else { 
 		 	game.say(self, "¡Necesitas un hueso para matarme!")
 			soundProducer.sound("sonidos/muerte.mp3").play()
