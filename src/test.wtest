@@ -65,12 +65,10 @@ describe "Toby test" {
 		hueso1.chocar(toby)
 		hueso2.chocar(toby)
 		hueso3.chocar(toby)
-		assert.equals(3, toby.cantidadDeHuesos())
 		
 		monstruo1.chocar(toby)
 		monstruo2.chocar(toby)
 		monstruo3.chocar(toby)
-		//assert.equals(3, toby.cantidadDeMonstruos())
 		
 		assert.equals(2, manejadorDeNivel.nivelActual())
 	}

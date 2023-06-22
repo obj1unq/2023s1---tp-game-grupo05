@@ -16,9 +16,7 @@ class Nivel {
 	
 	method setInputs(manejadorDeNivel) 
 	
-	method agregaElementos() {
-		
-	}
+	method agregaElementos() {}
 }
 
 
@@ -237,7 +235,5 @@ object nivelInicial inherits Nivel {
 		}
 	}
 	
-	method modificarPortada() {
-		
-	}
+	method modificarPortada() {}
 }

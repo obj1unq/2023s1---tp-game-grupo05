@@ -12,6 +12,8 @@ class Elemento {
 	}
 	
 	method chocar(personaje) {}
+	
+	method desaparecer() {}
 }
 
 
@@ -23,10 +25,13 @@ class Hueso inherits Elemento {
 	}
 	
 	override method chocar(personaje) {
-		personaje.comer()
-		game.schedule(50, {soundProducer.sound("sonidos/comiendo.mp3").play()})
-		game.removeVisual(self)
+		personaje.comer(self)
 	}
+	
+	override method desaparecer() {
+     	game.removeVisual(self)
+     	soundProducer.sound("sonidos/comiendo.mp3").play()
+     } 
 }
 
 
@@ -39,16 +44,12 @@ class Monstruo inherits Elemento {
 	}
 	
 	override method chocar(personaje) {
-		if (personaje.cantidadDeHuesos() >= 1) {
-			game.removeVisual(self)
-			personaje.eliminarMonstruos()
-		    soundProducer.sound("sonidos/monstruomuere.mp3").play()
-		 } else { 
-		 	game.say(self, "¡Necesitas un hueso para matarme!")
-			soundProducer.sound("sonidos/muerte.mp3").play()
-		 	personaje.perder()
-		 }
-		
+		personaje.matarOMorir(self)
+     }
+     
+    override method desaparecer() {
+     	game.removeVisual(self)
+     	soundProducer.sound("sonidos/monstruomuere.mp3").play()
      } 	
 }
 
@@ -70,7 +71,6 @@ class Trampa inherits Elemento {
 	override method chocar(personaje) {
 		if (visible) {
 			game.say(personaje, "¡Pisé una trampa!")
-			soundProducer.sound("sonidos/muerte.mp3").play()
 	 		personaje.perder()
 	 	}  
 	}	

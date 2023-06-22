@@ -16,16 +16,22 @@ object toby {
 		direccion.mover(self, cantidad)
 	}	
 	
-	method ladrar() {
-		game.say(self, "Wooof!!!")
+	 method comer(comida) {
+	 	cantidadDeHuesos = cantidadDeHuesos + 1
+	 	comida.desaparecer()
 	}
 	
-	 method comer() {
-	 	game.say(self, "¡Ya puedo matar al monstruo!")
-		cantidadDeHuesos = cantidadDeHuesos + 1
+	method matarOMorir(amenaza) {
+		if (self.cantidadDeHuesos() >= 1) {
+			self.eliminarMonstruo()
+			amenaza.desaparecer()
+		} else {
+			game.say(amenaza, "¡Necesitas un hueso para matarme!")
+		 	self.perder()
+		}
 	}
 	
-	method eliminarMonstruos() {
+	method eliminarMonstruo() {
 		cantidadDeMonstruos = cantidadDeMonstruos + 1
 		cantidadDeHuesos = cantidadDeHuesos - 1
 		if (cantidadDeMonstruos == 3) {
@@ -33,12 +39,13 @@ object toby {
 			cantidadDeMonstruos = 0
 		}
 	}
-	
+
 	method ganar() {
 		manejadorDeNivel.avanzarNivel()
 	}
 	
 	method perder() {
+		soundProducer.sound("sonidos/muerte.mp3").play()
 		manejadorDeNivel.finalizarJuego()
 	}
 }
