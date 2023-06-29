@@ -162,7 +162,8 @@ object nivel3 inherits NivelLaberinto {
 	 	huesos.add(new Hueso(positionX = 8, positionY = 2))
 	 	huesos.add(new Hueso(positionX = 15, positionY = 0))
 	 	huesos.add(new Hueso(positionX = 12, positionY = 7))
-	 	
+	 	huesos.add(new Hueso(positionX = 5, positionY = 9))
+
 	 	return huesos
 	 }
 	 
@@ -171,8 +172,9 @@ object nivel3 inherits NivelLaberinto {
  	
 	 	monstruos.add(new Monstruo(image="monstruo1.png", positionX = 10, positionY = 10))
 	    monstruos.add(new Monstruo(image="monstruo2.png", positionX = 0, positionY = 12))
-	    monstruos.add(new Monstruo(image="monstruo3.png", positionX = 15, positionY = 14))	
-	    
+	    monstruos.add(new Monstruo(image="monstruo3.png", positionX = 15, positionY = 14))
+	    monstruos.add(new Monstruo(image="monstruo4.png", positionX = 6, positionY = 8))		
+	  
 	 	return monstruos
 	 }
 	 
