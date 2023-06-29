@@ -11,17 +11,20 @@ describe "Toby test" {
 	const monstruo1 = new Monstruo(image = "monstruo1.png", positionX = 1, positionY = 1)
 	const monstruo2 = new Monstruo(image = "monstruo2.png", positionX = 1, positionY = 1)
 	const monstruo3 = new Monstruo(image = "monstruo3.png", positionX = 1, positionY = 1)
+	const monstruo4 = new Monstruo(image = "monstruo4.png", positionX = 1, positionY = 1)
 	const hueso1 = new Hueso(positionX = 0, positionY = 0)
 	const hueso2 = new Hueso(positionX = 0, positionY = 0)
 	const hueso3 = new Hueso(positionX = 0, positionY = 0)
-	const elementos = [monstruo1, monstruo2, monstruo3, hueso1, hueso2, hueso3]
+	const hueso4 = new Hueso(positionX = 0, positionY = 0)
+	const elementos1 = [monstruo1, monstruo2, hueso1, hueso2]
+	const elementos2 = [monstruo1, monstruo2, monstruo3, hueso1, hueso2, hueso3]
+	const elementos3 = [monstruo1, monstruo2, monstruo3, monstruo4, hueso1, hueso2, hueso3, hueso4]
 	
 	method initialize() {
-		
     	soundProducer.provider(soundProviderMock)
 		manejadorDeNivel.cargarNivel()
 		manejadorDeNivel.avanzarNivel()
-		nivel1.ubicar(elementos)
+		nivel1.ubicar(elementos1)
   	}
   
   
@@ -50,17 +53,28 @@ describe "Toby test" {
 	
 	test "Toby agarra un hueso y ahora puede matar al monstruo" {
 	
-			hueso1.chocar(toby)
-			assert.equals(1, toby.cantidadDeHuesos())	
+		hueso1.chocar(toby)
+		assert.equals(1, toby.cantidadDeHuesos())	
 			
-			monstruo1.chocar(toby)
-			assert.equals(1, toby.cantidadDeMonstruos())
-			assert.equals(nivel1, manejadorDeNivel.nivelActual())
+		monstruo1.chocar(toby)
+		assert.equals(1, toby.cantidadDeMonstruos())
+		assert.equals(nivel1, manejadorDeNivel.nivelActual())
 	}
 	
 	
-	test "Toby come los tres huesos y mata los tres monstruos del nivel 1, pasa al nivel 2" {
-
+	test "Toby pasa de nivel 1 a nivel 2, de nivel 2 a nivel 3 y de nivel 3 a la victoria" {
+		
+		assert.equals(nivel1, manejadorDeNivel.nivelActual())
+		
+		hueso1.chocar(toby)
+		hueso2.chocar(toby)
+		
+		monstruo1.chocar(toby)
+		monstruo2.chocar(toby)
+		
+		assert.equals(nivel2, manejadorDeNivel.nivelActual())
+		nivel2.ubicar(elementos2)
+			
 		hueso1.chocar(toby)
 		hueso2.chocar(toby)
 		hueso3.chocar(toby)
@@ -68,7 +82,20 @@ describe "Toby test" {
 		monstruo1.chocar(toby)
 		monstruo2.chocar(toby)
 		monstruo3.chocar(toby)
+				
+		assert.equals(nivel3, manejadorDeNivel.nivelActual())
+		nivel3.ubicar(elementos3)
+	
+		hueso1.chocar(toby)
+		hueso2.chocar(toby)
+		hueso3.chocar(toby)
+		hueso4.chocar(toby)
 		
-		assert.equals(nivel2, manejadorDeNivel.nivelActual())
-	}
+		monstruo1.chocar(toby)
+		monstruo2.chocar(toby)
+		monstruo3.chocar(toby)
+		monstruo4.chocar(toby)
+		
+		assert.equals(finDelJuego, manejadorDeNivel.nivelActual())
+	}	
 }

@@ -23,12 +23,20 @@ object toby {
 	
 	method matarOMorir(amenaza) {
 		if (self.cantidadDeHuesos() >= 1) {
-			amenaza.desaparecer()
-			self.eliminarMonstruo()
+			self.matar(amenaza)
 		} else {
-			game.say(amenaza, "¡Necesitas un hueso para matarme!")
-		 	self.perder()
+			self.morir(amenaza)
 		}
+	}
+	
+	method matar(amenaza) {
+		amenaza.desaparecer()
+		self.eliminarMonstruo()
+	}
+	
+	method morir(amenaza) {
+		game.say(amenaza, "¡Necesitas un hueso para matarme!")
+		self.perder()
 	}
 	
 	method eliminarMonstruo() {

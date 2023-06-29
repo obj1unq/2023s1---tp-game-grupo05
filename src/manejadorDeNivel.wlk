@@ -39,28 +39,24 @@ object manejadorDeNivel {
 	
 	method avanzarNivel() {
 	  	nivelActual++
-	  	game.clear()
-	  	currentMusic.stop()
-	  	self.cargarNivel()
+	  	self.cambiarNivel()
 	}
 	
 	method finalizarJuego() {
 		nivelActual = 4
 		finDelJuego.modificarPortada()
-	  	game.schedule(500, {
-	  		game.clear()
-			currentMusic.stop()
-			self.cargarNivel()
-		})
+	  	game.schedule(500, {self.cambiarNivel()})
 	}
 	
 	method reiniciarJuego() {
 		nivelActual = 0
-	  	game.schedule(500, {
-	  		game.clear()
-			currentMusic.stop()
-			self.cargarNivel()
-		})
+	  	game.schedule(500, {self.cambiarNivel()})
+	}
+	
+	method cambiarNivel() {
+		game.clear()
+		currentMusic.stop()
+		self.cargarNivel()
 	}
 	
 	method monstruosDerrotadosPorToby(cantidad) {

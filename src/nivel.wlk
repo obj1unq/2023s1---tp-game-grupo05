@@ -77,7 +77,6 @@ object nivel1 inherits NivelLaberinto {
 	 	const huesos  = []
  	
  		huesos.add(new Hueso(positionX = 13, positionY = 3))
- 		huesos.add(new Hueso(positionX = 0, positionY = 8))
  		huesos.add(new Hueso(positionX = 0, positionY = 14))
  	
  		return huesos
@@ -86,7 +85,6 @@ object nivel1 inherits NivelLaberinto {
 	 override method describirMonstruos() {
 	 	const monstruos  = []
  	
-	 	monstruos.add(new Monstruo(image="monstruo1.png", positionX = 6, positionY = 4 ))
 	    monstruos.add(new Monstruo(image="monstruo2.png", positionX = 7, positionY = 6 ))
 	    monstruos.add(new Monstruo(image="monstruo3.png", positionX = 3, positionY = 15))	
 	 	
