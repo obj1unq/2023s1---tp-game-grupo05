@@ -7,8 +7,12 @@ object manejadorDeNivel {
 	var property nivelActual = 0
 	var currentMusic
 	
+	method nivelActual() {
+		return niveles.get(nivelActual)
+	}
+	
 	method cargarNivel() {
-		const nivel = niveles.get(nivelActual)
+		const nivel = self.nivelActual()
 		self.dibujarFondo(nivel)
 		self.agregarElementos(nivel)
 		self.ejecutarMusica(nivel)
@@ -57,6 +61,15 @@ object manejadorDeNivel {
 			currentMusic.stop()
 			self.cargarNivel()
 		})
+	}
+	
+	method monstruosDerrotadosPorToby(cantidad) {
+		const nivel = self.nivelActual()
+		console.println(cantidad)
+		console.println(nivel.cantidadMonstruos())
+		if (cantidad == nivel.cantidadMonstruos()) {
+			self.avanzarNivel()
+		}
 	}
 }
 

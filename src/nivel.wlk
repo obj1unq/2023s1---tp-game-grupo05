@@ -22,6 +22,8 @@ class Nivel {
 
 class NivelLaberinto inherits Nivel {
 	
+	var property cantidadMonstruos = 0
+	
 	override method song() {
 		return "sonidos/nivel1.mp3"
 	}
@@ -42,14 +44,17 @@ class NivelLaberinto inherits Nivel {
 		toby.orientacion(derecha)
 		game.addVisual(toby)
 		game.onCollideDo(toby, {visualColisionado => visualColisionado.chocar(toby)})
+		toby.inicializar()
 	}
 	
 	override method agregaElementos() {
-		self.ubicarToby()
 		self.ubicar(self.describirHuesos())
-		self.ubicar(self.describirMonstruos())
+		const monstruos = self.describirMonstruos()
+		cantidadMonstruos = monstruos.size()
+		self.ubicar(monstruos)
 		self.ubicar(self.describirTrampas())
 		self.ubicar(self.describirMuro())
+		self.ubicarToby()
 	}
 	
 	method describirHuesos()
