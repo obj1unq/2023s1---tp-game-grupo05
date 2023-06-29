@@ -1,0 +1,18 @@
+import toby.*
+import wollok.game.*
+import soundProducer.*
+import Portada.*
+import manejadorDeNivel.*
+
+
+program tobyGame {
+
+	game.title("Toby: The secret mine")
+	game.width(16)
+	game.height(16)
+
+	game.cellSize(64)
+	manejadorDeNivel.cargarNivel()
+	
+	game.start()
+}
