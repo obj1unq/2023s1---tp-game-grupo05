@@ -3,6 +3,7 @@ import toby.*
 import elementos.*
 import repositorioDeMuros.*
 import movimientosDeToby.*
+import parametros.*
 
 class Nivel {
 	
@@ -87,6 +88,8 @@ object nivel1 inherits NivelLaberinto {
  	
 	    monstruos.add(new Monstruo(image="monstruo2.png", positionX = 7, positionY = 6 ))
 	    monstruos.add(new Monstruo(image="monstruo3.png", positionX = 3, positionY = 15))	
+	    
+	    monstruos.forEach{m => game.onTick(parametros.velocidadDelMonstruo(),"moverMonstruo",{ m.mover() })}
 	 	
 	 	return monstruos
 	 }
@@ -98,7 +101,7 @@ object nivel1 inherits NivelLaberinto {
 		trampas.add(new Trampa(positionX = 5, positionY = 8))
 		trampas.add(new Trampa(positionX = 3, positionY = 13))
 		
-		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
+		trampas.forEach{t => game.onTick(parametros.velocidadDeLaTrampa(),"sacarTrampa",{ t.cambiar() })}
 		
 		return trampas
 	 }
@@ -131,6 +134,8 @@ object nivel2 inherits NivelLaberinto {
 	 	monstruos.add(new Monstruo(image="monstruo1.png", positionX = 8, positionY = 9))
 	    monstruos.add(new Monstruo(image="monstruo2.png", positionX = 8, positionY = 1))
 	    monstruos.add(new Monstruo(image="monstruo3.png", positionX = 7, positionY = 12))	
+	    
+	    monstruos.forEach{m => game.onTick(parametros.velocidadDelMonstruo(),"moverMonstruo",{ m.mover() })}
 	 	
 	 	return monstruos
 	 }
@@ -142,7 +147,7 @@ object nivel2 inherits NivelLaberinto {
 		trampas.add(new Trampa(positionX = 1, positionY = 10))
 		trampas.add(new Trampa(positionX = 4, positionY = 15))
 		
-		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
+		trampas.forEach{t => game.onTick(parametros.velocidadDeLaTrampa(),"sacarTrampa",{ t.cambiar() })}
 		
 		return trampas
 	 }
@@ -176,7 +181,9 @@ object nivel3 inherits NivelLaberinto {
 	 	monstruos.add(new Monstruo(image="monstruo1.png", positionX = 10, positionY = 10))
 	    monstruos.add(new Monstruo(image="monstruo2.png", positionX = 0, positionY = 12))
 	    monstruos.add(new Monstruo(image="monstruo3.png", positionX = 15, positionY = 14))
-	    monstruos.add(new Monstruo(image="monstruo4.png", positionX = 6, positionY = 8))		
+	    monstruos.add(new Monstruo(image="monstruo4.png", positionX = 6, positionY = 8))
+	    
+	    monstruos.forEach{m => game.onTick(parametros.velocidadDelMonstruo(),"moverMonstruo",{ m.mover() })}		
 	  
 	 	return monstruos
 	 }
@@ -188,7 +195,7 @@ object nivel3 inherits NivelLaberinto {
 		trampas.add(new Trampa(positionX = 9, positionY = 13))
 		trampas.add(new Trampa(positionX = 4, positionY = 2))
 		
-		trampas.forEach{t => game.onTick(3000,"sacarTrampa",{ t.cambiar() })}
+		trampas.forEach{t => game.onTick(parametros.velocidadDeLaTrampa(),"sacarTrampa",{ t.cambiar() })}
 		
 		return trampas
 	 }
