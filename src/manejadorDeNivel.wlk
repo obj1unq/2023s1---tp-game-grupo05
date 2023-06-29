@@ -65,8 +65,6 @@ object manejadorDeNivel {
 	
 	method monstruosDerrotadosPorToby(cantidad) {
 		const nivel = self.nivelActual()
-		console.println(cantidad)
-		console.println(nivel.cantidadMonstruos())
 		if (cantidad == nivel.cantidadMonstruos()) {
 			self.avanzarNivel()
 		}

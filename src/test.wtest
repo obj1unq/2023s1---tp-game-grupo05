@@ -19,7 +19,6 @@ describe "Toby test" {
 	method initialize() {
 		
     	soundProducer.provider(soundProviderMock)
-//    	manejadorDeNivel.nivelActual(1)
 		manejadorDeNivel.cargarNivel()
 		manejadorDeNivel.avanzarNivel()
 		nivel1.ubicar(elementos)
@@ -29,7 +28,7 @@ describe "Toby test" {
   	test "Toby pisa una trampa activa y muere" {
 	
 		trampa.chocar(toby)
-		assert.equals(4, manejadorDeNivel.nivelActual())
+		assert.equals(finDelJuego, manejadorDeNivel.nivelActual())
 	}
 
 
@@ -37,7 +36,7 @@ describe "Toby test" {
 	
 		trampa.cambiar()
 		trampa.chocar(toby)
-		assert.equals(1, manejadorDeNivel.nivelActual())
+		assert.equals(nivel1, manejadorDeNivel.nivelActual())
 	}
 	
 	
@@ -45,7 +44,7 @@ describe "Toby test" {
 	
 		assert.equals(0, toby.cantidadDeHuesos())	
 		monstruo1.chocar(toby)
-		assert.equals(4, manejadorDeNivel.nivelActual())
+		assert.equals(finDelJuego, manejadorDeNivel.nivelActual())
 	}
 	
 	
@@ -56,7 +55,7 @@ describe "Toby test" {
 			
 			monstruo1.chocar(toby)
 			assert.equals(1, toby.cantidadDeMonstruos())
-			assert.equals(1, manejadorDeNivel.nivelActual())
+			assert.equals(nivel1, manejadorDeNivel.nivelActual())
 	}
 	
 	
@@ -70,6 +69,6 @@ describe "Toby test" {
 		monstruo2.chocar(toby)
 		monstruo3.chocar(toby)
 		
-		assert.equals(2, manejadorDeNivel.nivelActual())
+		assert.equals(nivel2, manejadorDeNivel.nivelActual())
 	}
 }
